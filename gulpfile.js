@@ -32,9 +32,9 @@ gulp.task('copy-presentation', () => {
   return merge(html, css, headers, images, md);
 });
 
-gulp.task('default', ['copy-presentation', 'copy-reveal', 'copy-jquery']);
+gulp.task('default', gulp.series(['copy-presentation', 'copy-reveal', 'copy-jquery']));
 
-gulp.task('watch', ['default'], () => {
+gulp.task('watch', gulp.series(['default']), () => {
   gulp.watch(
       ['*.html', '*.css', 'headers.js', 'images/**/*', '*.md'], ['default']);
 });
