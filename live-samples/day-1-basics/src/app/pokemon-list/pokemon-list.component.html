@@ -1,0 +1,17 @@
+<ul>
+  <li *ngFor="let p of filteredList">
+    <a [href]="p.url" target="_blank">{{ p.name }}</a>
+  </li>
+</ul>
+
+<button type="button" [disabled]="currentPage === 0"
+  (click)="move(-1)">Prev.</button>
+<button type="button" [disabled]="currentPage === numberOfPages - 1"
+  (click)="move(+1)">Next.</button>
+<button type="button" (click)="last()">Last</button>
+
+<br/>
+
+<app-pager [numberOfPages]="numberOfPages"
+  (previous)="move(-1)"
+  (next)="move(+1)"></app-pager>

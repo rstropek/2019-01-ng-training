@@ -1,0 +1,5 @@
+<button type="button" [disabled]="currentPage === 0"
+  (click)="gotoPrevious()">Prev.</button>
+<button type="button" [disabled]="currentPage === numberOfPages - 1"
+  (click)="gotoNext()">Next.</button>
+<button type="button">Last</button>
