@@ -1,0 +1,15 @@
+<label>Start value:</label><input type="text" [(ngModel)]="startValue"><br>
+<label>Height:</label><input type="text" [(ngModel)]="height">
+<label class="error" *ngIf="height < 2">Height must be >= 2</label><br>
+<button (click)="calculate()">Calculate</button>
+<table *ngIf="calcResult">
+  <tbody>
+    <tr *ngFor="let entry of calcResult">
+      <td class="align-right">{{entry.left}}</td>
+      <td>{{entry.operation}}</td>
+      <td class="align-right">{{entry.middle}}</td>
+      <td>=</td>
+      <td class="align-right">{{entry.right}}</td>
+    </tr>
+  </tbody>
+</table>

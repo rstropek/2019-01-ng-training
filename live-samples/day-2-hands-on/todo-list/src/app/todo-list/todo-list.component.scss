@@ -1,0 +1,82 @@
+.progressbar {
+  margin-top:20px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.filter-area {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: lightgray;
+
+  .filter-input {
+    margin-left: 5px;
+  }
+}
+
+.new-area {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: lightgray;
+
+  input {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  select {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}
+
+.todo-list-entry {
+  margin: 10px;
+  padding: 15px;
+  border-radius: 20px;
+  background-color: lightgray;
+
+  .item-title {
+    font-weight: bold;
+  }
+
+  .second-line {
+    margin-top: 20px;
+    cursor: pointer;
+
+    .user-icon {
+      color: #29a1d1;
+    }
+
+    .check-icon {
+      .done {
+        color: #07be3e;
+      }
+
+      .undone {
+        color: #b84315;
+      }
+    }
+
+    .user-selector {
+      margin-left: 5px;
+    }
+
+    .remove {
+      margin-right: 20px;
+    }
+  }
+
+  .progressbar {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+
