@@ -1,0 +1,52 @@
+<app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
+
+<div *ngIf="!isLoading">
+
+  <div class="progressbar">
+    <app-progressbar [progress]="progress"></app-progressbar>
+  </div>
+
+  <div class="filter-area">
+    <label>Filter:</label>
+    <input class="filter-input" [(ngModel)]="filterString" />
+  </div>
+
+  <div class="new-area">
+    <div>
+      <label>Description:</label>
+      <input class="description-input" [(ngModel)]="newItemDescription" />
+
+      <label>Assigned to:</label>
+      <select class="user-selector" [(ngModel)]="newItemAssignedTo">
+        <option *ngFor="let p of people" [ngValue]="p.name">{{p.name}}</option>
+      </select>
+    </div>
+    <button (click)="createTodo()">Create</button>
+  </div>
+
+
+  <div class="todo-list-entry" *ngFor="let item of filteredTodos">
+    <div class="d-flex">
+      <div class="item-title flex-1">
+        <input-editor class="item-title" [(ngModel)]="item.description" type="text" placeholder="Enter Description"
+          (onSave)="updateItem(item)"></input-editor>
+      </div>
+    </div>
+    <div class="d-flex second-line">
+      <div class="owner flex-1"><i class="fas fa-user user-icon"></i>
+        <select class="user-selector" [(ngModel)]="item.assignedTo" (ngModelChange)="updateItem(item)">
+          <option *ngFor="let p of people" [ngValue]="p.name">{{p.name}}</option>
+        </select>
+      </div>
+
+      <div (click)="removeItem(item.id)" class="remove"><i class="fas fa-trash-alt"></i></div>
+      <div (click)="toggleState(item)" class="check-icon">
+        <i *ngIf="item.done !== true" class="far fa-circle undone"></i>
+        <i *ngIf="item.done === true" class="far fa-check-circle done"></i>
+      </div>
+    </div>
+    <div class="progressbar">
+      <app-progressbar [progress]="item.finishPercentage"></app-progressbar>
+    </div>
+  </div>
+</div>
